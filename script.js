@@ -1,9 +1,5 @@
 /**
  * Generates a random integer between the specified minimum and maximum values.
- *
- * @param {number} min - Minimum value.
- * @param {number} max - Maximum value.
- * @returns {number} Random integer between min and max.
  */
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -13,8 +9,6 @@ function getRandomInt(min, max) {
 
 /**
  * Generates a random choice for the computer: "Rock", "Paper", or "Scissors".
- *
- * @returns {string} Random computer choice.
  */
 function getComputerChoice() {
     const randomInt = getRandomInt(0, 2);
@@ -23,17 +17,9 @@ function getComputerChoice() {
 
 /**
  * Plays a single round of the game.
- *
- * @param {string} playerSelection - Player's choice: "Rock", "Paper",or "Scissors".
- * @param {string} computerSelection - Computer's choice.
- * @returns {string} Result of the round.
  */
 function playRound(playerSelection, computerSelection) {
-    let rockChoice = ["rock", "Rock", "ROCK"],
-    paperChoice = ["paper", "Paper", "PAPER"],
-    scissorsChoice = ["scissors", "Scissors", "SCISSORS"];
-
-    if (rockChoice.includes(playerSelection)) {
+    if (playerSelection === 'Rock') {
         if (computerSelection === "Rock") {
             return "A wonderful tie";
         }
@@ -44,7 +30,7 @@ function playRound(playerSelection, computerSelection) {
             return "You wun! Rock beats Scissors.";
         }
     }
-    else if (paperChoice.includes(playerSelection)) {
+    else if (playerSelection === 'Paper') {
         if (computerSelection === "Paper") {
             return "A wonderful tie";
         }
@@ -55,7 +41,7 @@ function playRound(playerSelection, computerSelection) {
             return "You wun! Paper beats Rock.";
         }
     }
-    else if (scissorsChoice.includes(playerSelection)) {
+    else if (playerSelection === 'Scissors') {
         if (computerSelection === "Scissors") {
             return "A wonderful tie";
         }
@@ -66,27 +52,31 @@ function playRound(playerSelection, computerSelection) {
             return "You wun! Scissors beats Paper.";
         }
     }
-    else {
-        return "Please enter a valid choice!";
-    }
 }
 
-/**
- * Simulates the game for a specified number of rounds.
- *
- * @param {number} n - Number of rounds.
- */
-function game(n) {
-    let computerChoice, userChoice;
+let computerChoice = ""; 
+let userChoice = "";
+let computerScore = document.querySelector('.computer_score');
+let userScore = document.querySelector('.user_score');
+let msg = document.createElement('h3');
+let scoreDiv = document.querySelector('.score');
 
-    for (let i = 0; i < n; i++) {
+buttons.forEach((button) => {
+    button.addEventListener('click', function() {
+        if (button.classList.contains('rock')) {
+            userChoice = 'Rock';
+        }
+        else if (button.classList.contains('paper')) {
+            userChoice = 'Paper';
+        }
+        else {
+            userChoice = 'Scissors';
+        }
+
         computerChoice = getComputerChoice();
-        userChoice = prompt("Enter your choice: ");
-        console.log("Computer's choice is: " + computerChoice);
-        console.log("Your choice is: " + userChoice);
-        console.log(playRound(userChoice, computerChoice));
-    }
-}
-
-// Play the game for 5 rounds
-game(5);
+        computerScore.setAttribute("style", `background-image: url(./images/${computerChoice}.png); background-size: 90px;`);
+        userScore.setAttribute("style", `background-image: url(./images/${userChoice}.png); background-size: 90px;`);
+        msg.textContent = playRound(userChoice, computerChoice);
+        scoreDiv.appendChild(msg);
+    })
+});
