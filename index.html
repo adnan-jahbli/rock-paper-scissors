@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="./style.css">
+        <script src="./audio.js" defer></script>
+        <script src="./script.js" defer></script>
+        <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Choose your weapen</h1>
+                <!-- Add a background img to this element
+            with a sword icon -->
+                <img class="swords" src="./images/swords.png" alt="swords">
+            </div>
+            <ul class="user_choice">
+                <li><button class="rock">Rock</button></li>
+                <li class="paper"><button class="paper">Paper</button></li>
+                <li class="scissors"><button class="scissors">Scissors</button></li>
+                <audio id="select_sound" src="./audios/select-sound.mp3"></audio>
+            </ul>
+            <div class="score">
+                <h2>First to score 5 points wins the game</h2>
+                <div class="players_score">
+                    <p class="user_score">You: </p>
+                    <p class="computer_score">Computer: </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
