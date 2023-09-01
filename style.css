@@ -20,6 +20,7 @@ body {
 }
 
 .container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,4 +140,66 @@ ul {
 
 .score h3 {
     font-size: 16px;
+}
+
+.popUpContainer {
+    position: absolute;
+    top: 0;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+    border-radius: 10px;
+}
+
+.popUp {
+    position: absolute;
+    top: 40%;
+    color: black;
+    background-color: #96B6C5;
+    width: 300px;
+    opacity: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    gap: 20px;
+    padding: 16px;
+}
+
+.popUpHeader {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.popUpMsg {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.popUpButton {
+    padding: 12px;
+    background-color: #F1F0E8;
+    border: 2.5px solid black;
+    border-radius: 4px;
+    font-size: 20px;
+    transition: 0.3s;
+    text-align: left;
+    cursor: pointer;
+}
+
+.popUpButton:hover {
+    background-color: #EEE0C9;
+    transform: scale(1.1);
+}
+
+/* Clicked effect */
+.popUpButton:active {
+    transform: scale(0.95);
+}
+
+/* Remove outline on button click */
+.popUpButton:focus {
+  outline: none;
 }
