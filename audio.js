@@ -1,4 +1,5 @@
-let buttons = document.querySelectorAll('.user_choice button');
+let buttons = document.querySelectorAll('button');
+buttons = document.querySelectorAll('button');
 let select_sound = document.getElementById('select_sound');
 
 buttons.forEach((button) => button.addEventListener('click', function(e) {
