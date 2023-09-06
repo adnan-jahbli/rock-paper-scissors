@@ -78,8 +78,8 @@ buttons.forEach((button) => {
         }
 
         computerChoice = getComputerChoice();
-        computerScore.setAttribute("style", `background-image: url(./images/${computerChoice}.png); background-size: 90px;`);
-        userScore.setAttribute("style", `background-image: url(./images/${userChoice}.png); background-size: 90px;`);
+        computerScore.setAttribute("style", `background-image: url(./images/${computerChoice.toLowerCase()}.png); background-size: 90px;`);
+        userScore.setAttribute("style", `background-image: url(./images/${userChoice.toLowerCase()}.png); background-size: 90px;`);
         msg.textContent = playRound(userChoice, computerChoice);
         scoreDiv.appendChild(msg);
 
